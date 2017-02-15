@@ -54,9 +54,7 @@ void updateParticles(double delta_t, particle_t *particles, int N) {
             forcex[j] += -k*r_x;
             forcey[j] += -k*r_y;
          
-      }
-      //forcex[i] = -G*m_i*forceSum_x; 
-      //forcey[i] = -G*m_i*forceSum_y;      
+      }   
         
    }
    // Using the force, update the velocity and position.
