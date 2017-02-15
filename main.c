@@ -77,11 +77,12 @@ int main(int argc, const char* argv[]) {
  // N number of stars/particles to simulate 
  // filename is the filename of the file to read the initial configuration from 
  // nsteps is the number of timesteps
+ // theta_max is the threshold value to be used in the Barnes-Hut algorithm
  // graphics is 1 or 0 meaning graphics on/off
 
 // check if the parameters in the command line are correct, otherwise error message with instructions.	
-  	if(argc != 6) {
-      printf("Please give in: N filename nsteps delta_t graphics.\n");
+  	if(argc != 7) {
+      printf("Please give in: N filename nsteps delta_t theta_max graphics.\n");
       return -1;
     }
  
@@ -92,7 +93,10 @@ int main(int argc, const char* argv[]) {
       printf("Error: (N < 1).\n");
       return -1;
     }
-  	
+ // read in theta_max
+   double theta_max = atof(argv[6]);
+      printf("theta_max = %f\n", theta_max);
+   
  // read in filename and open filename. 	
    FILE *ptr_file;
  
