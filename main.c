@@ -132,6 +132,16 @@ int main(int argc, const char* argv[]) {
     i=j*5;
  }
    
+ // assignment 4
+   
+ p_qtree ** head;
+   
+   for(int k=0;k<N;k++)
+   {
+       insert(head, particles[i]);
+   }
+   
+ /*   use for assignment 3
    if(!graphics) {
       for(int t=0;t<nsteps;t++) {
          // dont use function?
@@ -165,7 +175,7 @@ int main(int argc, const char* argv[]) {
     
      FlushDisplay();
      CloseDisplay();
-   }
+   } */
 
  i = 0;
  j = 0;  
