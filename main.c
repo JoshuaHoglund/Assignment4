@@ -3,6 +3,7 @@
 #include <math.h>
 #include "file_operations.h"
 #include "graphics.h"
+#include "quad.h"
 
 
 // use value vector instead
