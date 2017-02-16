@@ -5,22 +5,6 @@
 #include "graphics.h"
 #include "quad.h"
 
-
-typedef struct particle
-{
-   double             x_pos;
-   double             y_pos;
-   double 	     mass;
-   double      vel_x;
-   double       vel_y;
-} particle_t;
-
-typedef struct force{
- double x;
- double y;
-} force_t;
-
-
 void updateParticles(double delta_t, particle_t *particles, int N) {
    //Set constants
    double *forcex=(double*)malloc(N*sizeof(double));
