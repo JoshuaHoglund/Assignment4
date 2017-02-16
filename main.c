@@ -101,7 +101,8 @@ int main(int argc, const char* argv[]) {
  	int nsteps = atoi(argv[3]);
  	double delta_t = atof(argv[4]);
  	
-   int graphics = atoi(argv[5]);
+  // int graphics = atoi(argv[5]);
+  
  double *values =(double*)malloc(5*N*sizeof(double));
  read_doubles_from_file(atoi(argv[1])*5, values, argv[2]);
  
