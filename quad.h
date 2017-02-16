@@ -16,7 +16,7 @@ typedef struct particle
    double       vel_y;
 } particle_t;
 
-struct Quadtree {
+typedef struct Quadtree {
 	p_qtree * nw;
 	p_qtree * ne;
 	p_qtree * se;
