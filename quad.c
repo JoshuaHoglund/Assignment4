@@ -26,8 +26,8 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 		return force;
 	}
 	else {
-		double r_x = p.x - (**node).centerX;
-		double r_y = p.y - (**node).centerY;
+		double r_x = p.x_pos - (**node).centerX;
+		double r_y = p.y_pos - (**node).centerY;
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		force.x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		force.y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
@@ -37,16 +37,16 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 
 void delete(p_qtree ** node) {
 	if ((**node).nw==NULL) {
-		free(*p_qtree);
-		(*p_qtree)=NULL;
+		free(*node);
+		(*node)=NULL;
 	}
 	else {
 		delete(&(**node).nw);
 		delete(&(**node).ne);
 		delete(&(**node).sw);
 		delete(&(**node).se);
-		free(*p_qtree);
-		(*p_qtree)=NULL;
+		free(*node);
+		(*node)=NULL;
 	}	
 }
 
