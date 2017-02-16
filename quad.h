@@ -17,10 +17,10 @@ typedef struct particle
 } particle_t;
 
 typedef struct Quadtree {
-	p_qtree * nw;
-	p_qtree * ne;
-	p_qtree * se;
-	p_qtree * sw;
+	struct Quadtree * nw;
+	struct Quadtree * ne;
+	struct Quadtree * se;
+	struct Quadtree * sw;
 	particle p;
 	double width;
 	double centerX;
