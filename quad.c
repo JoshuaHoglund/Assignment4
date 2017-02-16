@@ -78,19 +78,19 @@ void assignHome(int home, particle_t p , p_qtree * nw, p_qtree * ne,
 				p_qtree* sw, p_qtree se) {	
 	switch(home) {
 			case 1:
-			    (*nw).particle=p;
+			    (*nw).p=p;
 				(*nw).mass = p.mass;
 				break;
 			case 2:
-			    (*ne).particle=p;
+			    (*ne).p=p;
 				(*ne).mass = p.mass;
 				break;
 			case 3:
-				(*sw).particle=p;
+				(*sw).p=p;
 				(*sw).mass = p.mass;
 				break;
 			case 4:
-				(*se).particle=p;
+				(*se).p=p;
 				(*se).mass = p.mass;
 				break;
 		}
