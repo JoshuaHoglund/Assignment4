@@ -21,16 +21,16 @@ typedef struct Quadtree {
 	struct Quadtree * ne;
 	struct Quadtree * se;
 	struct Quadtree * sw;
-	particle p;
+	particle_t p;
 	double width;
 	double centerX;
 	double centerY;
 	double massCenterX;
 	double massCenterY;
-	double mass=0;	
+	double mass;	
 }p_qtree;
 
-void insert(p_qtree ** node, particle p);
+void insert(p_qtree ** node, particle_t p);
 
 force_t getForce(p_qtree ** node, particle p, force_t force, double thetamax, double G, double epsilon);
 
