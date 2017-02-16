@@ -4,7 +4,7 @@ CFLAGS = -O3 -Wall -Werror
 LDFLAGS =-L/opt/X11/lib -lX11 -lm
 INCLUDES=-I/opt/X11/include
 RM = /bin/rm -f
-OBJS = main.o file_operations.o graphics.o
+OBJS = main.o file_operations.o graphics.o quad.o
 EXECUTABLE = galsim
 
 all:$(EXECUTABLE)
