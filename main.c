@@ -6,7 +6,6 @@
 #include "quad.h"
 
 
-// use value vector instead
 typedef struct particle
 {
    double             x_pos;
@@ -15,6 +14,12 @@ typedef struct particle
    double      vel_x;
    double       vel_y;
 } particle_t;
+
+typedef struct force{
+ double x;
+ double y;
+} force_t;
+
 
 void updateParticles(double delta_t, particle_t *particles, int N) {
    //Set constants
