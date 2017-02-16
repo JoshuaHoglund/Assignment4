@@ -6,7 +6,8 @@
 #include <math.h>
 
 double dist(double x1, double x2, double y1, double y2) {
-	return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	double d = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
+	return d;
 }
 
 force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, double G, double epsilon) {
