@@ -129,20 +129,21 @@ int main(int argc, const char* argv[]) {
    
  for(int t=0;t<nsteps;t++) {
     p_qtree * head=NULL;
-    force_t * force =(force_t*)calloc(sizeof(force_t));
+    force_t * force =(force_t*)calloc(1,sizeof(force_t));
    
    for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
    }
    
-    massification(&head)
+    massification(&head);
          
    for(int i=0;i<N;i++){
-     getForce(&head, particles[i],force,thetamax,G,epsilon);
-      m_i = 1/particles[i].mass;
-      particles[i].vel_x += delta_t*force.x*m_i;
-      particles[i].vel_y += delta_t*force.y*m_i;
+     getForce(&head, particles[i],force,theta_max,G,epsilon);
+      
+      double m_i = 1/particles[i].mass;
+      particles[i].vel_x += delta_t*(*force).x*m_i;
+      particles[i].vel_y += delta_t*(*force).y*m_i;
       particles[i].x_pos += delta_t*particles[i].vel_x;
       particles[i].y_pos += delta_t*particles[i].vel_y;  
    }
