@@ -22,6 +22,46 @@ double dist(double x1, double x2, double y1, double y2) {
 	return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
 
+force_t getForce(p_qtree ** node, particle p, force_t force, double thetamax, double G, double epsilon) {
+	double theta = (**node).width/dist(p.x, (**node).centerX, p.y, (**node).centerY);
+	if ((**node).nw==NULL) {
+		r_x = p.x - (**node).centerX;
+		r_y = p.y - (**node).centerY;
+		abs_r = sqrt(r_x*r_x + r_y*r_y);
+		force.x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
+		force.y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
+		return force;
+	}
+	if (theta>thetamax) {
+		force.x = getForce(&(**node).nw).x + getForce(&(**node).ne).x + getForce(&(**node).sw).x + getForce(&(**node).se).x;
+		force.y = getForce(&(**node).nw).y + getForce(&(**node).ne).y + getForce(&(**node).sw).y + getForce(&(**node).se).y;
+		return force;
+	}
+	else {
+		r_x = p.x - (**node).centerX;
+		r_y = p.y - (**node).centerY;
+		abs_r = sqrt(r_x*r_x + r_y*r_y);
+		force.x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
+		force.y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
+		return force;
+	}
+}
+
+void delete(p_qtree ** node) {
+	if ((**node).nw==NULL) {
+		free(*p_qtree);
+		(*p_qtree)=NULL;
+	}
+	else {
+		delete(&(**node).nw);
+		delete(&(**node).ne);
+		delete(&(**node).sw);
+		delete(&(**node).se);
+		free(*p_qtree);
+		(*p_qtree)=NULL;
+	}	
+}
+
 int compass(double px, double py, centerX, centerY) {
 	int res; // nw=1 ne=2 sw=3 se=4
 	// west
