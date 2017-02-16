@@ -75,10 +75,10 @@ int compass(double px, double py, double centerX, double centerY) {
 }
 
 void assignHome(int home, particle_t p , p_qtree * nw, p_qtree * ne, 
-				p_qtree* sw, p_qtree se) {	
+				p_qtree* sw, p_qtree* se) {	
 	switch(home) {
 			case 1:
-			    (&*nw).p=p;
+			    (*nw).p=p;
 				(*nw).mass = p.mass;
 				break;
 			case 2:
