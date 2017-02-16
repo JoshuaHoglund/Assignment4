@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "quad.h"
+#include <math.h>
 
 double dist(double x1, double x2, double y1, double y2) {
 	return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
