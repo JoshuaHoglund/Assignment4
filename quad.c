@@ -104,8 +104,8 @@ void massification(p_qtree ** node) {
 		return;
 	}
 	else if((**node).nw==NULL){
-		(**node).massCenterX = (**node).particle.x;
-		(**node).massCenterY = (**node).particle.y;
+		(**node).massCenterX = (**node).p.x;
+		(**node).massCenterY = (**node).p.y;
 	}
 	else {
 		massification(&(**node).nw);
@@ -164,35 +164,35 @@ void insert(p_qtree ** node, particle_t p) {
 		
 		
 		if (mass==0) {
-			assignHome(compass(p.x,p.y,centerX,centerY), p, nw, ne, sw, se);
+			assignHome(compass(p.x_pos,p.y_pos,centerX,centerY), p, nw, ne, sw, se);
 		}
 		else {
-			int home1 = compass(p.x, p.y, centerX, centerY);
-			int home2 = compass((**node).particle.x, (**node).particle.y, centerX, centerY);
+			int home1 = compass(p.x_pos, p.y_pos, centerX, centerY);
+			int home2 = compass((**node).particle.x_pos, (**node).particle.y_pos, centerX, centerY);
 			if (home1==home2) {
 				switch(home1) {
 						case 1:
 							insert(&nw,p);
-							insert(&nw,(**node).particle);
+							insert(&nw,(**node).p);
 							break;
 						case 2:
 							insert(&ne,p);
-							insert(&ne,(**node).particle);
+							insert(&ne,(**node).p);
 							break;
 						case 3:
 							insert(&sw,p);
-							insert(&sw,(**node).particle);
+							insert(&sw,(**node).p);
 							break;
 						case 4:
 							insert(&se,p);
-							insert(&se,(**node).particle);
+							insert(&se,(**node).p);
 							break;
 				}
 				
 			}
 			else {
 				assignHome(home1, p, nw, ne, sw, se);
-				assignHome(home2, (**node).particle, nw, ne, sw, se);
+				assignHome(home2, (**node).p, nw, ne, sw, se);
 			}
 		}
 	}
