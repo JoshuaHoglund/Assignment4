@@ -4,20 +4,6 @@
 #include <assert.h>
 #include "quad.h"
 
-struct Quadtree {
-	p_qtree * nw;
-	p_qtree * ne;
-	p_qtree * se;
-	p_qtree * sw;
-	particle p;
-	double width;
-	double centerX;
-	double centerY;
-	double massCenterX;
-	double massCenterY;
-	double mass=0;	
-}p_qtree;
-
 double dist(double x1, double x2, double y1, double y2) {
 	return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
