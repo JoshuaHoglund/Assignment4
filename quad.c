@@ -8,7 +8,7 @@ double dist(double x1, double x2, double y1, double y2) {
 	return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
 }
 
-force_t getForce(p_qtree ** node, particle p, force_t force, double thetamax, double G, double epsilon) {
+force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, double G, double epsilon) {
 	double theta = (**node).width/dist(p.x, (**node).centerX, p.y, (**node).centerY);
 	if ((**node).nw==NULL) {
 		r_x = p.x - (**node).centerX;
@@ -72,7 +72,7 @@ int compass(double px, double py, centerX, centerY) {
 			return res;
 }
 
-void assignHome(int home, particle p , p_qtree * nw, p_qtree * ne, 
+void assignHome(int home, particle_t p , p_qtree * nw, p_qtree * ne, 
 				p_qtree* sw, p_qtree se) {	
 	switch(home) {
 			case 1:
@@ -126,7 +126,7 @@ void massification(p_qtree ** node) {
 }
 
 
-void insert(p_qtree ** node, particle p) {
+void insert(p_qtree ** node, particle_t p) {
 	p_qtree * nw = (**node).nw;
 	p_qtree * sw = (**node).sw;
 	p_qtree * ne = (**node).ne;
