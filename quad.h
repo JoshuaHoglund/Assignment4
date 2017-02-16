@@ -32,7 +32,7 @@ typedef struct Quadtree {
 
 void insert(p_qtree ** node, particle_t p);
 
-force_t getForce(p_qtree ** node, particle p, force_t force, double thetamax, double G, double epsilon);
+force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, double G, double epsilon);
 
 void delete(p_qtree ** node);
 
