@@ -21,7 +21,7 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 		return force;
 	}
 	if (theta>thetamax) {
-		force.x = getForce((&(**node).nw).x_pos, p, force, thetamax, G, eps) + getForce((&(**node).ne).x_pos, p, force, thetamax, G, eps) + getForce((&(**node).sw).x_pos, p, force, thetamax, G, eps) + getForce((&(**node).se).x_pos, p, force, thetamax, G, eps);
+		force.x = getForce((&(**node).nw),p.x_pos, force, thetamax, G, eps) + getForce((&(**node).ne).x_pos, p, force, thetamax, G, eps) + getForce((&(**node).sw).x_pos, p, force, thetamax, G, eps) + getForce((&(**node).se).x_pos, p, force, thetamax, G, eps);
 		force.y = getForce(&(**node).nw).y + getForce(&(**node).ne).y + getForce(&(**node).sw).y + getForce(&(**node).se).y;
 		return force;
 	}
