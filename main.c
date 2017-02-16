@@ -94,7 +94,7 @@ int main(int argc, const char* argv[]) {
   		printf("File does not exist." );
   		return 1;}
  	  // store data of opened file 
-   
+   //
  		
   	fclose(ptr_file);
    
