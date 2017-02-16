@@ -18,8 +18,11 @@ graphics.o: graphics.h graphics.c
 file_operations.o: file_operations.h file_operations.c
 	$(CC) $(CFLAGS) -c file_operations.c
 
-main.o: main.c graphics.h file_operations.h
+main.o: main.c graphics.h file_operations.h quad.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c main.c
+
+quad.o: quad.h quad.c
+	$(CC) $(CFLAGS) -c quad.c 
 
 clean:
 	$(RM) $(EXECUTABLE) $(OBJS)
