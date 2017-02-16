@@ -50,7 +50,7 @@ void delete(p_qtree ** node) {
 	}	
 }
 
-int compass(double px, double py, centerX, centerY) {
+int compass(double px, double py, double centerX, double centerY) {
 	int res; // nw=1 ne=2 sw=3 se=4
 	// west
 			if (px<centerX) {
