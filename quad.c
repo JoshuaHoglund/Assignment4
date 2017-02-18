@@ -155,10 +155,6 @@ void massification(p_qtree ** node) {
 
 
 void insert(p_qtree ** node, particle_t p) {
-	p_qtree * nw = (**node).nw;
-	p_qtree * sw = (**node).sw;
-	p_qtree * ne = (**node).ne;
-	p_qtree * se = (**node).se;
 	double width = (**node).width;
 	double centerX = (**node).centerX;
 	double centerY = (**node).centerY;
