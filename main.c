@@ -210,7 +210,10 @@ int main(int argc, const char* argv[]) {
     force_t * force = (force_t*)calloc(1,sizeof(force_t));
    
     insert(&head, particles[0]);
-           
+           printf("x0: %lf",particles[0].x_pos);
+           printf("y0: %lf",particles[0].y_pos);
+           printf("x1: %lf",particles[1].x_pos);
+           printf("y1: %lf",particles[1].y_pos);
            
            
             for(int k=0;k<N;k++)
