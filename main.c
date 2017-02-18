@@ -194,7 +194,7 @@ int main(int argc, const char* argv[]) {
               DrawCircle(x, y, L, W, circleRadius, 0.1);          
            }
            Refresh();
-           usleep(8000000);
+           usleep(80000);
            
                p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
     (*head).nw = NULL;
