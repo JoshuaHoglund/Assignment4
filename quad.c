@@ -125,7 +125,7 @@ void massification(p_qtree ** node) {
 	double mass = (**node).mass;
 	
 	
-	if (mass==0) {
+	if ((**node).nw==NULL && mass==0) {
 		return;
 	}
 	else if((**node).nw==NULL){
