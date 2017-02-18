@@ -132,7 +132,7 @@ int main(int argc, const char* argv[]) {
     p_qtree * head=NULL;
     force_t * force =(force_t*)calloc(1,sizeof(force_t));
    
-    insert(&head, particles[0];
+    insert(&head, particles[0]);
   /* for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
