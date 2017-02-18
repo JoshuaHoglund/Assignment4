@@ -194,7 +194,7 @@ int main(int argc, const char* argv[]) {
               DrawCircle(x, y, L, W, circleRadius, 0.1);          
            }
            Refresh();
-           usleep(8000);
+           usleep(8000000);
            
                p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
     (*head).nw = NULL;
@@ -210,10 +210,10 @@ int main(int argc, const char* argv[]) {
     force_t * force = (force_t*)calloc(1,sizeof(force_t));
    
     insert(&head, particles[0]);
-           printf("x0: %lf",particles[0].x_pos);
-           printf("y0: %lf",particles[0].y_pos);
-           printf("x1: %lf",particles[1].x_pos);
-           printf("y1: %lf",particles[1].y_pos);
+           printf("x0: %lf\n",particles[0].x_pos);
+           printf("y0: %lf\n",particles[0].y_pos);
+           printf("x1: %lf\n",particles[1].x_pos);
+           printf("y1: %lf\n",particles[1].y_pos);
            
            
             for(int k=0;k<N;k++)
