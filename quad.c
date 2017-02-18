@@ -174,7 +174,7 @@ void insert(p_qtree ** node, particle_t p) {
 	double mass = (**node).mass;
 	// external node
 	if ((**node).nw==NULL) {
-		
+		(**node).mass = 1;
 		(**node).nw = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).ne = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).sw = (p_qtree *) malloc(sizeof(p_qtree));
