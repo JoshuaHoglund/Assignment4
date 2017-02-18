@@ -55,6 +55,7 @@ void printTree(p_qtree ** node) {
 		}
 	}
 	else {
+		printf("new head \n");
 		printf("nw \n");
 		printTree(&(**node).nw);
 		printf("ne \n");
@@ -63,6 +64,7 @@ void printTree(p_qtree ** node) {
 		printTree(&(**node).sw);
 		printf("se \n");
 		printTree(&(**node).se);
+		prinf("end of head");
 	}
 }
 
