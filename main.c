@@ -138,7 +138,7 @@ int main(int argc, const char* argv[]) {
        insert(&head, particles[k]);
    }*/
    
-  //  massification(&head);
+ massification(&head);
          
    for(int i=0;i<N;i++){
      getForce(&head, particles[i],*force,theta_max,G,epsilon);
