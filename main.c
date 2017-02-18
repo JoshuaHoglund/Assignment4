@@ -240,8 +240,8 @@ int main(int argc, const char* argv[]) {
      CloseDisplay();
    } 
 
- i = 0;
- j = 0;  
+ int i = 0;
+ int j = 0;  
  while(j<N){
     values[i] = particles[j].x_pos;
     values[i+1] = particles[j].y_pos;
