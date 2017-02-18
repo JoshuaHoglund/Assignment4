@@ -234,7 +234,7 @@ int main(int argc, const char* argv[]) {
    free(force);
    }
    
-         }
+         
     
      FlushDisplay();
      CloseDisplay();
