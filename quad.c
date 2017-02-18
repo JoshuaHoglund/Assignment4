@@ -153,6 +153,12 @@ void massification(p_qtree ** node) {
 		}
 }
 
+void nullifyChildren(p_qtree ** node) {
+	(**node).nw = NULL;
+	(**node).ne = NULL;
+	(**node).sw = NULL;
+	(**node).se = NULL;
+}
 
 void insert(p_qtree ** node, particle_t p) {
 	double width = (**node).width;
@@ -166,6 +172,10 @@ void insert(p_qtree ** node, particle_t p) {
 		(**node).ne = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).sw = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).se = (p_qtree *) malloc(sizeof(p_qtree));
+		nullifyChildren((**node).nw);
+		nullifyChildren((**node).ne);
+		nullifyChildren((**node).sw);
+		nullifyChildren((**node).se);
 		(*(**node).nw).width = 0.5*width; 
 		(*(**node).ne).width = 0.5*width;
 		(*(**node).sw).width = 0.5*width;
