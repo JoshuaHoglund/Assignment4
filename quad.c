@@ -12,6 +12,7 @@ double dist(double x1, double x2, double y1, double y2) {
 
 force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetamax, double G, double eps) {
 	double theta = (**node).width/dist(p.x_pos, (**node).centerX, p.x_pos, (**node).centerY);
+	//If (**node).nw==NULL all other children are also NULL
 	if ((**node).nw==NULL && p.x_pos!=(**node).massCenterX) {
 		double r_x = p.x_pos - (**node).massCenterX;
 		double r_y = p.y_pos - (**node).massCenterY;
@@ -172,7 +173,7 @@ void insert(p_qtree ** node, particle_t p) {
 	double centerX = (**node).centerX;
 	double centerY = (**node).centerY;
 	double mass = (**node).mass;
-	// external node
+	// external node, if (**node).nw==NULL all other children are also NULL
 	if ((**node).nw==NULL) {
 		if(mass!=0) {
 		(**node).nw = (p_qtree *) malloc(sizeof(p_qtree));
