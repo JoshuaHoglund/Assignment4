@@ -242,7 +242,7 @@ int main(int argc, const char* argv[]) {
            
    
    delete(&head);
-   
+   printf("Delete worked\n");
    }
    
          
