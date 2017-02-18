@@ -43,7 +43,7 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 void printTree(p_qtree ** node) {
 	if ((**node).nw==NULL) {
 		if ((**node).mass==0) {
-			printf("Empty");
+			printf("Empty \n");
 		}
 		printf("x: %lf \n y: %lf \n mass: %lf",(**node).massCenterX,(**node).massCenterY,(**node).mass);
 	}
