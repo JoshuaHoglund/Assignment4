@@ -140,6 +140,7 @@ int main(int argc, const char* argv[]) {
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
+    
     force_t * force = (force_t*)calloc(1,sizeof(force_t));
    
    // insert(&head, particles[0]);
@@ -195,6 +196,23 @@ int main(int argc, const char* argv[]) {
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
+      (*(**head).nw).width = 0.5; 
+		(*(**head).ne).width = 0.5;
+		(*(**head).sw).width = 0.5;
+		(*(**head).se).width = 0.5;
+		(*(**head).nw).mass = 0; 
+		(*(**head).ne).mass = 0;
+		(*(**head).sw).mass = 0;
+		(*(**head).se).mass = 0;
+		(*(**head).nw).centerX = centerX-0.25;
+		(*(**head).ne).centerX = centerX+0.25;
+		(*(**head).sw).centerX = centerX-0.25;
+		(*(**head).se).centerX = centerX+0.25;
+		
+		(*(**head).nw).centerY = centerY+0.25;
+		(*(**head).ne).centerY = centerY+0.25;
+		(*(**head).sw).centerY = centerY-0.25;
+		(*(**head).se).centerY = centerY-0.25;
     
    printf("Init worked\n");
     insert(&head, particles[0]);
