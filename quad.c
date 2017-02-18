@@ -129,6 +129,7 @@ void massification(p_qtree ** node) {
 
 
 void insert(p_qtree ** node, particle_t p) {
+	printf("Goes into the insert function");
 	p_qtree * nw = (**node).nw;
 	p_qtree * sw = (**node).sw;
 	p_qtree * ne = (**node).ne;
