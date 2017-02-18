@@ -210,7 +210,7 @@ int main(int argc, const char* argv[]) {
   massification(&head);
   printf("Massification worked\n");  
   printf("New time step\n");
-  //printTree(&head);
+  printTree(&head);
   printf("printTree worked\n");  
            
            
