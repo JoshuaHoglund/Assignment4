@@ -40,6 +40,25 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 	}
 }
 
+void printTree(p_qtree ** node) {
+	if ((**node).nw==NULL) {
+		if (mass==0) {
+			printf("Empty");
+		}
+		printf("x: %lf \n y: %lf \n mass: %lf,(**node).massCenterX,(**node).massCenterY,(**node).mass);
+	}
+	else {
+		printf("nw \n");
+		printTree(&(**node).nw);
+		printf("ne \n");
+		printTree(&(**node).ne);
+		printf("sw \n");
+		printTree(&(**node).sw);
+		printf("se \n");
+		printTree(&(**node).se);
+	}
+}
+
 void delete(p_qtree ** node) {
 	if ((**node).nw==NULL) {
 		free(*node);
