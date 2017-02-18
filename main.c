@@ -139,10 +139,12 @@ int main(int argc, const char* argv[]) {
    }*/
    
  massification(&head);
-         
+    
+    getForce(&head, particles[0], *force,theta_max,G,epsilon);
+       /*  
    for(int i=0;i<N;i++){
      getForce(&head, particles[i],*force,theta_max,G,epsilon);
-      
+      */
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
       particles[i].vel_y += delta_t*(*force).y*m_i;
