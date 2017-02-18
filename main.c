@@ -190,17 +190,19 @@ int main(int argc, const char* argv[]) {
     //(*head).ne = NULL;
     //(*head).sw = NULL; 
     //(*head).se = NULL; 
-		(*head).nw = (p_qtree *) malloc(sizeof(p_qtree));
+		/*(*head).nw = (p_qtree *) malloc(sizeof(p_qtree));
 		(*head).ne = (p_qtree *) malloc(sizeof(p_qtree));
 		(*head).sw = (p_qtree *) malloc(sizeof(p_qtree));
 		(*head).se = (p_qtree *) malloc(sizeof(p_qtree));
+		*/
     (*head).width = 1;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-      (*(*head).nw).width = 0.5; 
+    
+		/*(*(*head).nw).width = 0.5; 
 		(*(*head).ne).width = 0.5;
 		(*(*head).sw).width = 0.5;
 		(*(*head).se).width = 0.5;
@@ -216,7 +218,7 @@ int main(int argc, const char* argv[]) {
 		(*(*head).nw).centerY = 0.75;
 		(*(*head).ne).centerY = 0.75;
 		(*(*head).sw).centerY = 0.25;
-		(*(*head).se).centerY = 0.25;
+		(*(*head).se).centerY = 0.25;*/
     
    printf("Init worked\n");
     insert(&head, particles[0]);
