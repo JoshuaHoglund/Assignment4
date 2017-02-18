@@ -235,6 +235,10 @@ void insert(p_qtree ** node, particle_t p) {
 			}
 		}
 	}
+	else if(mass=0) {
+		(**node).p=p;
+		(**node).mass = p.mass;
+	}
 	else {
 		int home = compass(p.x_pos, p.y_pos, centerX, centerY);
 		switch(home) {
