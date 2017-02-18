@@ -134,7 +134,7 @@ int main(int argc, const char* argv[]) {
     (*head).ne = NULL;
     (*head).sw = NULL; 
     (*head).se = NULL; 
-    (*head).width = 1;
+    (*head).width = 1.0;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
     (*head).mass = 0;
