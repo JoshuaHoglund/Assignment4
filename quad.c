@@ -129,20 +129,16 @@ void massification(p_qtree ** node) {
 
 
 void insert(p_qtree ** node, particle_t p) {
-	printf("Goes into the insert function");
 	p_qtree * nw = (**node).nw;
 	p_qtree * sw = (**node).sw;
 	p_qtree * ne = (**node).ne;
 	p_qtree * se = (**node).se;
-	printf("nw, sw etc exist");
 	double width = (**node).width;
 	double centerX = (**node).centerX;
 	double centerY = (**node).centerY;
 	double mass = (**node).mass;
-	printf("mass, width etc exist");
 	// external node
 	if (nw==NULL) {
-		printf("NULL case");
 		nw = (p_qtree *) malloc(sizeof(p_qtree));
 		ne = (p_qtree *) malloc(sizeof(p_qtree));
 		sw = (p_qtree *) malloc(sizeof(p_qtree));
@@ -200,7 +196,6 @@ void insert(p_qtree ** node, particle_t p) {
 		}
 	}
 	else {
-		printf(" Not the NULL case");
 		int home = compass(p.x_pos, p.y_pos, centerX, centerY);
 		switch(home) {
 			case 1:
