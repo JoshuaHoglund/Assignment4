@@ -190,6 +190,10 @@ int main(int argc, const char* argv[]) {
     //(*head).ne = NULL;
     //(*head).sw = NULL; 
     //(*head).se = NULL; 
+		(**node).nw = (p_qtree *) malloc(sizeof(p_qtree));
+		(**node).ne = (p_qtree *) malloc(sizeof(p_qtree));
+		(**node).sw = (p_qtree *) malloc(sizeof(p_qtree));
+		(**node).se = (p_qtree *) malloc(sizeof(p_qtree));
     (*head).width = 1;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
