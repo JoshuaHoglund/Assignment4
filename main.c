@@ -184,19 +184,7 @@ int main(int argc, const char* argv[]) {
          
         for(int t=0;t<nsteps;t++) {
            
-           ClearScreen();           
-           for(int i=0;i<N;i++) {
-              x = particles[i].x_pos;
-              //printf("%lf\n", x);
-              y = particles[i].y_pos;
-              //printf("%lf\n", y);
-              circleRadius = 0.005;
-              DrawCircle(x, y, L, W, circleRadius, 0.1);          
-           }
-           Refresh();
-           usleep(80000000);
-           
-               p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
+                          p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
     (*head).nw = NULL;
     (*head).ne = NULL;
     (*head).sw = NULL; 
@@ -223,6 +211,21 @@ int main(int argc, const char* argv[]) {
            
   massification(&head);
   printTree(&head);
+           
+           
+           ClearScreen();           
+           for(int i=0;i<N;i++) {
+              x = particles[i].x_pos;
+              //printf("%lf\n", x);
+              y = particles[i].y_pos;
+              //printf("%lf\n", y);
+              circleRadius = 0.005;
+              DrawCircle(x, y, L, W, circleRadius, 0.1);          
+           }
+           Refresh();
+           usleep(80000000);
+           
+
            
    for(int i=0;i<N;i++){
      getForce(&head, particles[i],*force,theta_max,G,epsilon);
