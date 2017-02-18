@@ -37,3 +37,5 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 void delete(p_qtree ** node);
 
 void massification(p_qtree ** node);
+
+void printTree(p_qtree ** node);
