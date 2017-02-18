@@ -10,7 +10,7 @@ double dist(double x1, double x2, double y1, double y2) {
 	return d;
 }
 
-force_t getForce(p_qtree ** node, particle_t p, force_t * force, double thetamax, double G, double eps) {
+force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetamax, double G, double eps) {
 	double theta = (**node).width/dist(p.x_pos, (**node).centerX, p.x_pos, (**node).centerY);
 	if ((**node).nw==NULL && p.x_pos!=(**node).massCenterX) {
 		double r_x = p.x_pos - (**node).massCenterX;
