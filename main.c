@@ -195,7 +195,7 @@ int main(int argc, const char* argv[]) {
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-    force_t * force = (force_t*)calloc(1,sizeof(force_t));
+    
    
     insert(&head, particles[0]);
           // printf("x0: %lf\n",particles[0].x_pos);
@@ -228,7 +228,8 @@ int main(int argc, const char* argv[]) {
 
            
    for(int i=0;i<N;i++){
-     getForce(&head, particles[i],*force,theta_max,G,epsilon);
+      force_t * force = (force_t*)calloc(1,sizeof(force_t));
+     getForce(&head, particles[i], force,theta_max,G,epsilon);
       
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
