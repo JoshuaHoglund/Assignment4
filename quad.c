@@ -129,7 +129,6 @@ void massification(p_qtree ** node) {
 		return;
 	}
 	else if((**node).nw==NULL){
-		printf("Massification");
 		(**node).massCenterX = (**node).p.x_pos;
 		(**node).massCenterY = (**node).p.y_pos;
 	}
