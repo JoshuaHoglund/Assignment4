@@ -151,7 +151,7 @@ int main(int argc, const char* argv[]) {
   massification(&head);
          
    for(int i=0;i<N;i++){
-     getForce(&head, particles[i],*force,theta_max,G,epsilon);
+     getForce(&head, particles[i],force,theta_max,G,epsilon);
       
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
@@ -229,7 +229,7 @@ int main(int argc, const char* argv[]) {
            
    for(int i=0;i<N;i++){
       force_t * force = (force_t*)calloc(1,sizeof(force_t));
-     getForce(&head, particles[i], *force,theta_max,G,epsilon);
+     getForce(&head, particles[i], force,theta_max,G,epsilon);
       
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
