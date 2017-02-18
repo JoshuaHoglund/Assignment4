@@ -132,12 +132,13 @@ int main(int argc, const char* argv[]) {
     p_qtree * head=NULL;
     force_t * force =(force_t*)calloc(1,sizeof(force_t));
    
-   for(int k=0;k<N;k++)
+    insert(&head, particle[0];
+  /* for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
-   }
+   }*/
    
-    massification(&head);
+  //  massification(&head);
          
    for(int i=0;i<N;i++){
      getForce(&head, particles[i],*force,theta_max,G,epsilon);
