@@ -196,7 +196,7 @@ int main(int argc, const char* argv[]) {
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-      (*(**head).nw).width = 0.5; 
+      (*(*head).nw).width = 0.5; 
 		(*(*head).ne).width = 0.5;
 		(*(*head).sw).width = 0.5;
 		(*(*head).se).width = 0.5;
