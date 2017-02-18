@@ -64,7 +64,7 @@ void printTree(p_qtree ** node) {
 		printTree(&(**node).sw);
 		printf("se \n");
 		printTree(&(**node).se);
-		prinf("end of head");
+		printf("end of head");
 	}
 }
 
