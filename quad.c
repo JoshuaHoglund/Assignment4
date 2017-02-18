@@ -13,8 +13,8 @@ double dist(double x1, double x2, double y1, double y2) {
 force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, double G, double eps) {
 	double theta = (**node).width/dist(p.x_pos, (**node).centerX, p.x_pos, (**node).centerY);
 	if ((**node).nw==NULL && p.x_pos!=(**node).massCenterX) {
-		double r_x = p.x_pos - (**node).centerX;
-		double r_y = p.y_pos - (**node).centerY;
+		double r_x = p.x_pos - (**node).massCenterX;
+		double r_y = p.y_pos - (**node).massCenterY;
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		force.x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		force.y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
@@ -26,8 +26,8 @@ force_t getForce(p_qtree ** node, particle_t p, force_t force, double thetamax, 
 		return force;
 	}
 	else if(p.x_pos!=(**node).massCenterX) {
-		double r_x = p.x_pos - (**node).centerX;
-		double r_y = p.y_pos - (**node).centerY;
+		double r_x = p.x_pos - (**node).massCenterX;
+		double r_y = p.y_pos - (**node).massCenterY;
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		force.x += -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		force.y += -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
