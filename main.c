@@ -186,39 +186,12 @@ int main(int argc, const char* argv[]) {
         for(int t=0;t<nsteps;t++) {
            
     p_qtree * head=(p_qtree *) calloc(1,sizeof(p_qtree));
-   // (*head).nw = NULL;
-    //(*head).ne = NULL;
-    //(*head).sw = NULL; 
-    //(*head).se = NULL; 
-		/*(*head).nw = (p_qtree *) malloc(sizeof(p_qtree));
-		(*head).ne = (p_qtree *) malloc(sizeof(p_qtree));
-		(*head).sw = (p_qtree *) malloc(sizeof(p_qtree));
-		(*head).se = (p_qtree *) malloc(sizeof(p_qtree));
-		*/
     (*head).width = 1;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
     (*head).mass = 0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-    
-		/*(*(*head).nw).width = 0.5; 
-		(*(*head).ne).width = 0.5;
-		(*(*head).sw).width = 0.5;
-		(*(*head).se).width = 0.5;
-		(*(*head).nw).mass = 0; 
-		(*(*head).ne).mass = 0;
-		(*(*head).sw).mass = 0;
-		(*(*head).se).mass = 0;
-		(*(*head).nw).centerX = 0.25;
-		(*(*head).ne).centerX = 0.75;
-		(*(*head).sw).centerX = 0.25;
-		(*(*head).se).centerX = 0.75;
-		
-		(*(*head).nw).centerY = 0.75;
-		(*(*head).ne).centerY = 0.75;
-		(*(*head).sw).centerY = 0.25;
-		(*(*head).se).centerY = 0.25;*/
     
    printf("Init worked\n");
     insert(&head, particles[0]);
