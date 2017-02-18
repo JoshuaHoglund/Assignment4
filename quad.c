@@ -45,7 +45,7 @@ void printTree(p_qtree ** node) {
 		if ((**node).mass==0) {
 			printf("Empty \n");
 		} else {
-		printf("x: %lf \n y: %lf \n mass: %lf \n",(**node).massCenterX,(**node).massCenterY,(**node).mass);
+		printf("cx: %lf \n y: %lf \n mass: %lf \n",(**node).centerX,(**node).massCenterY,(**node).mass);
 		}
 	}
 	else {
@@ -154,10 +154,10 @@ void massification(p_qtree ** node) {
 }
 
 void nullifyChildren(p_qtree ** node) {
-	(*node).nw = NULL;
-	(*node).ne = NULL;
-	(*node).sw = NULL;
-	(*node).se = NULL;
+	(**node).nw = NULL;
+	(**node).ne = NULL;
+	(**node).sw = NULL;
+	(**node).se = NULL;
 }
 
 void insert(p_qtree ** node, particle_t p) {
