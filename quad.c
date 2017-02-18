@@ -44,8 +44,9 @@ void printTree(p_qtree ** node) {
 	if ((**node).nw==NULL) {
 		if ((**node).mass==0) {
 			printf("Empty \n");
-		}
+		} else {
 		printf("x: %lf \n y: %lf \n mass: %lf \n",(**node).massCenterX,(**node).massCenterY,(**node).mass);
+		}
 	}
 	else {
 		printf("nw \n");
