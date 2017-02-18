@@ -208,12 +208,12 @@ int main(int argc, const char* argv[]) {
    {
        insert(&head, particles[k]);
    }
-  printf("Insert worked");         
+  printf("Insert worked\n");         
   massification(&head);
-  printf("Massification worked");  
+  printf("Massification worked\n");  
   printf("New time step\n");
   printTree(&head);
-  printf("printTree worked");  
+  printf("printTree worked\n");  
            
            
            ClearScreen();           
@@ -231,7 +231,7 @@ int main(int argc, const char* argv[]) {
    for(int i=0;i<N;i++){
       force_t * force = (force_t*)calloc(1,sizeof(force_t));
       force = getForce(&head, particles[i], force,theta_max,G,epsilon);    
-       printf("getForce worked");  
+       printf("getForce worked\n");  
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
       particles[i].vel_y += delta_t*(*force).y*m_i;
