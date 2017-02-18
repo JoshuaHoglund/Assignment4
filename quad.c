@@ -64,7 +64,7 @@ void printTree(p_qtree ** node) {
 		printTree(&(**node).sw);
 		printf("se \n");
 		printTree(&(**node).se);
-		printf("end of head");
+		printf("end of head \n");
 	}
 }
 
@@ -201,9 +201,9 @@ void insert(p_qtree ** node, particle_t p) {
 		(*(**node).sw).centerY = centerY-0.25*width;
 		(*(**node).se).centerY = centerY-0.25*width;		
 		
-			int home1 = compass(p.x_pos, p.y_pos, centerX, centerY);
-			int home2 = compass((**node).p.x_pos, (**node).p.y_pos, centerX, centerY);
-			if (home1==home2) {
+		int home1 = compass(p.x_pos, p.y_pos, centerX, centerY);
+		int home2 = compass((**node).p.x_pos, (**node).p.y_pos, centerX, centerY);
+		if (home1==home2) {
 				switch(home1) {
 						case 1:
 							insert(&(**node).nw,p);
@@ -227,13 +227,12 @@ void insert(p_qtree ** node, particle_t p) {
 			else {
 				assignHome(home1, p, (**node).nw, (**node).ne, (**node).sw, (**node).se);
 				assignHome(home2, (**node).p, (**node).nw, (**node).ne, (**node).sw, (**node).se);
-			}
-		}
+			}			
+		}		
 		else {
 			(**node).p=p;
 			(**node).mass = p.mass;
-		}
-		
+		}		
 	}
 	else {
 		int home = compass(p.x_pos, p.y_pos, centerX, centerY);
