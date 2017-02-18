@@ -184,7 +184,7 @@ int main(int argc, const char* argv[]) {
          
         for(int t=0;t<nsteps;t++) {
            
-    p_qtree * head=(p_qtree *) calloc(sizeof(p_qtree));
+    p_qtree * head=(p_qtree *) calloc(1,sizeof(p_qtree));
    // (*head).nw = NULL;
     //(*head).ne = NULL;
     //(*head).sw = NULL; 
