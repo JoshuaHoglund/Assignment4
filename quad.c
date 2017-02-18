@@ -174,7 +174,7 @@ void insert(p_qtree ** node, particle_t p) {
 	double mass = (**node).mass;
 	// external node
 	if ((**node).nw==NULL) {
-		(**node).mass = 1;
+		if(mass!=0) {
 		(**node).nw = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).ne = (p_qtree *) malloc(sizeof(p_qtree));
 		(**node).sw = (p_qtree *) malloc(sizeof(p_qtree));
@@ -199,13 +199,8 @@ void insert(p_qtree ** node, particle_t p) {
 		(*(**node).nw).centerY = centerY+0.25*width;
 		(*(**node).ne).centerY = centerY+0.25*width;
 		(*(**node).sw).centerY = centerY-0.25*width;
-		(*(**node).se).centerY = centerY-0.25*width;
+		(*(**node).se).centerY = centerY-0.25*width;		
 		
-		
-		if (mass==0) {
-			assignHome(compass(p.x_pos,p.y_pos,centerX,centerY), p, (**node).nw, (**node).ne, (**node).sw, (**node).se);
-		}
-		else {
 			int home1 = compass(p.x_pos, p.y_pos, centerX, centerY);
 			int home2 = compass((**node).p.x_pos, (**node).p.y_pos, centerX, centerY);
 			if (home1==home2) {
@@ -234,10 +229,11 @@ void insert(p_qtree ** node, particle_t p) {
 				assignHome(home2, (**node).p, (**node).nw, (**node).ne, (**node).sw, (**node).se);
 			}
 		}
-	}
-	else if(mass==0) {
-		(**node).p=p;
-		(**node).mass = p.mass;
+		else {
+			(**node).p=p;
+			(**node).mass = p.mass;
+		}
+		
 	}
 	else {
 		int home = compass(p.x_pos, p.y_pos, centerX, centerY);
