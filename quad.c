@@ -167,9 +167,9 @@ void insert(p_qtree ** node, particle_t p) {
 	if (nw==NULL) {
 		
 		nw = (p_qtree *) malloc(sizeof(p_qtree));
-		printf("%d \n",nw);
+		printf("%d \n",(int)nw);
 		nw =NULL;
-		printf("%d \n",nw);
+		printf("%d \n",(int)nw);
 		ne = (p_qtree *) malloc(sizeof(p_qtree));
 		sw = (p_qtree *) malloc(sizeof(p_qtree));
 		se = (p_qtree *) malloc(sizeof(p_qtree));
