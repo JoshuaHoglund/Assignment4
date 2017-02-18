@@ -129,7 +129,7 @@ void massification(p_qtree ** node) {
 		return;
 	}
 	else if((**node).nw==NULL){
-		printf("Massification\n");
+		printf("Massification");
 		(**node).massCenterX = (**node).p.x_pos;
 		(**node).massCenterY = (**node).p.y_pos;
 	}
@@ -154,10 +154,10 @@ void massification(p_qtree ** node) {
 }
 
 void nullifyChildren(p_qtree ** node) {
-	(**node).nw = NULL;
-	(**node).ne = NULL;
-	(**node).sw = NULL;
-	(**node).se = NULL;
+	(*node).nw = NULL;
+	(*node).ne = NULL;
+	(*node).sw = NULL;
+	(*node).se = NULL;
 }
 
 void insert(p_qtree ** node, particle_t p) {
