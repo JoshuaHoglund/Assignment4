@@ -208,18 +208,18 @@ int main(int argc, const char* argv[]) {
    {
        insert(&head, particles[k]);
    }
-           
+  printf("Insert worked");         
   massification(&head);
+  printf("Massification worked");  
   printf("New time step\n");
   printTree(&head);
+  printf("printTree worked");  
            
            
            ClearScreen();           
            for(int i=0;i<N;i++) {
               x = particles[i].x_pos;
-              //printf("%lf\n", x);
               y = particles[i].y_pos;
-              //printf("%lf\n", y);
               circleRadius = 0.005;
               DrawCircle(x, y, L, W, circleRadius, 0.1);          
            }
@@ -230,11 +230,10 @@ int main(int argc, const char* argv[]) {
            
    for(int i=0;i<N;i++){
       force_t * force = (force_t*)calloc(1,sizeof(force_t));
-     force = getForce(&head, particles[i], force,theta_max,G,epsilon);
-      
+      force = getForce(&head, particles[i], force,theta_max,G,epsilon);    
+       printf("getForce worked");  
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
-      //printf("%lf\n\n", delta_t*(*force).x*m_i);
       particles[i].vel_y += delta_t*(*force).y*m_i;
       particles[i].x_pos += delta_t*particles[i].vel_x;
       particles[i].y_pos += delta_t*particles[i].vel_y;  
