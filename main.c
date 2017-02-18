@@ -142,8 +142,7 @@ int main(int argc, const char* argv[]) {
     (*head).massCenterY = 0.5;
     force_t * force = (force_t*)calloc(1,sizeof(force_t));
    
-    // insert(&head, particles[0]);
-    
+    insert(&head, particles[0]);
    for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
@@ -166,14 +165,14 @@ int main(int argc, const char* argv[]) {
    }
    
    
- /*   use for assignment 3
-   if(!graphics) {
+ 
+   if(graphics==5) {
       for(int t=0;t<nsteps;t++) {
          // dont use function?
          updateParticles(delta_t, particles, N);
       }
    }
-   else {
+   else if(graphics ==1) {
       int L = 1;
       int W = 1;
       int windowWidth = 600;
@@ -195,12 +194,32 @@ int main(int argc, const char* argv[]) {
            }
            Refresh();
            //usleep(800);
-           updateParticles(delta_t, particles, N);
+            for(int k=0;k<N;k++)
+   {
+       insert(&head, particles[k]);
+   }
+   
+  massification(&head);
+         
+   for(int i=0;i<N;i++){
+     getForce(&head, particles[i],*force,theta_max,G,epsilon);
+      
+      double m_i = 1/particles[i].mass;
+      particles[i].vel_x += delta_t*(*force).x*m_i;
+      particles[i].vel_y += delta_t*(*force).y*m_i;
+      particles[i].x_pos += delta_t*particles[i].vel_x;
+      particles[i].y_pos += delta_t*particles[i].vel_y;  
+   }
+   
+   delete(&head);
+   free(force);
+   }
+   
          }
     
      FlushDisplay();
      CloseDisplay();
-   } */
+   } 
 
  i = 0;
  j = 0;  
