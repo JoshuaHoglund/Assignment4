@@ -127,7 +127,7 @@ int main(int argc, const char* argv[]) {
 
  double epsilon=0.001;
  const double G=100.0/N;
-   
+  if(graphics ==0){ 
  for(int t=0;t<nsteps;t++) {
     p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
     (*head).nw = NULL;
@@ -163,6 +163,7 @@ int main(int argc, const char* argv[]) {
    delete(&head);
    free(force);
    }
+  }
    
    
  
@@ -182,7 +183,7 @@ int main(int argc, const char* argv[]) {
       double x, y, circleRadius;
          
         for(int t=0;t<nsteps;t++) {
-            
+           
            ClearScreen();           
            for(int i=0;i<N;i++) {
               x = particles[i].x_pos;
@@ -194,6 +195,24 @@ int main(int argc, const char* argv[]) {
            }
            Refresh();
            //usleep(800);
+           
+               p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
+    (*head).nw = NULL;
+    (*head).ne = NULL;
+    (*head).sw = NULL; 
+    (*head).se = NULL; 
+    (*head).width = 1;
+    (*head).centerX = 0.5;
+    (*head).centerY = 0.5;
+    (*head).mass = 0;
+    (*head).massCenterX = 0.5;
+    (*head).massCenterY = 0.5;
+    force_t * force = (force_t*)calloc(1,sizeof(force_t));
+   
+    insert(&head, particles[0]);
+           
+           
+           
             for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
