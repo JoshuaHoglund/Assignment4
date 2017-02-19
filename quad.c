@@ -22,21 +22,22 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		(*force).y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		printf("force_x: %lf \n",(*force).x);
 		printf("force_y: %lf \n",(*force).y);
-		/*if (sqrt((*force).x*(*force).x)<0.001) {
+		if (sqrt((*force).x*(*force).x)<0.001) {
 			(*force).x = 0;
 			(*force).y = 0;
-		}*/
+		}
 		return force;
 	}
 	if (theta>thetamax && p.x_pos!=(**node).massCenterX) {
-		(*force).x += (*getForce((&(**node).nw),p, force, thetamax, G, eps)).x + 
-			(*getForce((&(**node).ne), p, force, thetamax, G, eps)).x + 
-			(*getForce((&(**node).sw), p, force, thetamax, G, eps)).x + 
-			(*getForce((&(**node).se), p, force, thetamax, G, eps)).x;
 		(*force).y += (*getForce((&(**node).nw),p, force, thetamax, G, eps)).y + 
 			(*getForce((&(**node).ne),p, force, thetamax, G, eps)).y + 
 			(*getForce((&(**node).sw),p, force, thetamax, G, eps)).y + 
 			(*getForce((&(**node).se),p, force, thetamax, G, eps)).y;
+		(*force).x += (*getForce((&(**node).nw),p, force, thetamax, G, eps)).x + 
+			(*getForce((&(**node).ne), p, force, thetamax, G, eps)).x + 
+			(*getForce((&(**node).sw), p, force, thetamax, G, eps)).x + 
+			(*getForce((&(**node).se), p, force, thetamax, G, eps)).x;
+		
 		printf("outside 2 force_x: %lf \n",(*force).x);
 		return force;
 	}
