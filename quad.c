@@ -32,13 +32,13 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		force_t * tempforce = malloc(sizeof(force_t));
 		force_t nwforce = *getForce((&(**node).nw),p, tempforce, thetamax, G, eps);
 		free(tempforce);
-		force_t * tempforce = malloc(sizeof(force_t));
+		tempforce = malloc(sizeof(force_t));
 		force_t neforce = *getForce((&(**node).ne),p, tempforce, thetamax, G, eps);
 		free(tempforce);
-		force_t * tempforce = malloc(sizeof(force_t));
+		tempforce = malloc(sizeof(force_t));
 		force_t swforce = *getForce((&(**node).sw),p, tempforce, thetamax, G, eps);
 		free(tempforce);
-		force_t * tempforce = malloc(sizeof(force_t));
+		tempforce = malloc(sizeof(force_t));
 		force_t seforce = *getForce((&(**node).se),p, tempforce, thetamax, G, eps);
 		free(tempforce);
 		
