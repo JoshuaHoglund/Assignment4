@@ -193,9 +193,9 @@ int main(int argc, const char* argv[]) {
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
     
-   printf("Init worked\n");
+  // printf("Init worked\n");
     insert(&head, particles[0]);
-   printf("Insert worked\n");
+  // printf("Insert worked\n");
           // printf("x0: %lf\n",particles[0].x_pos);
           // printf("y0: %lf\n",particles[0].y_pos);
           // printf("x1: %lf\n",particles[1].x_pos);
@@ -206,12 +206,12 @@ int main(int argc, const char* argv[]) {
    {
        insert(&head, particles[k]);
    }
-  printf("Insert worked\n");         
+  //printf("Insert worked\n");         
   massification(&head);
-  printf("Massification worked\n");  
-  printf("New time step\n");
+  //printf("Massification worked\n");  
+  //printf("New time step\n");
   printTree(&head);
-  printf("printTree worked\n");  
+  //printf("printTree worked\n");  
            
            
            ClearScreen();           
@@ -229,9 +229,9 @@ int main(int argc, const char* argv[]) {
    for(int i=0;i<N;i++){
       force_t * force = (force_t*)calloc(1,sizeof(force_t));
       force = getForce(&head, particles[i],theta_max,G,epsilon);    
-       printf("getForce worked\n"); 
-      printf("outside force_x: %lf \n",(*force).x);
-      printf("outside force_y: %lf \n",(*force).y);
+      // printf("getForce worked\n"); 
+      //printf("outside force_x: %lf \n",(*force).x);
+      //printf("outside force_y: %lf \n",(*force).y);
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
       particles[i].vel_y += delta_t*(*force).y*m_i;
@@ -242,7 +242,7 @@ int main(int argc, const char* argv[]) {
            
    
    delete(&head);
-   printf("Delete worked\n");
+   //printf("Delete worked\n");
    }
    
          
