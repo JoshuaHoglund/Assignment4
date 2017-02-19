@@ -29,10 +29,18 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		return force;
 	}
 	else if (theta>thetamax && p.x_pos!=(**node).massCenterX) {
-		force_t nwforce = *getForce((&(**node).nw),p, force, thetamax, G, eps);
-		force_t neforce = *getForce((&(**node).ne),p, force, thetamax, G, eps);
-		force_t swforce = *getForce((&(**node).sw),p, force, thetamax, G, eps);
-		force_t seforce = *getForce((&(**node).se),p, force, thetamax, G, eps);
+		force_t * tempforce = malloc(sizeof(force_t));
+		force_t nwforce = *getForce((&(**node).nw),p, tempforce, thetamax, G, eps);
+		free(tempforce);
+		force_t * tempforce = malloc(sizeof(force_t));
+		force_t neforce = *getForce((&(**node).ne),p, tempforce, thetamax, G, eps);
+		free(tempforce);
+		force_t * tempforce = malloc(sizeof(force_t));
+		force_t swforce = *getForce((&(**node).sw),p, tempforce, thetamax, G, eps);
+		free(tempforce);
+		force_t * tempforce = malloc(sizeof(force_t));
+		force_t seforce = *getForce((&(**node).se),p, tempforce, thetamax, G, eps);
+		free(tempforce);
 		
 		(*force).y += nwforce.x + neforce.x + swforce.x + seforce.x;
 		(*force).y += nwforce.y + neforce.y + swforce.y + seforce.y;
