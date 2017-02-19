@@ -171,7 +171,7 @@ int main(int argc, const char* argv[]) {
    if(graphics==5) {
       for(int t=0;t<nsteps;t++) {
          // dont use function?
-         updateParticles(delta_t, particles, N);
+         //updateParticles(delta_t, particles, N);
       }
    }
    else if(graphics ==1) {
@@ -189,7 +189,7 @@ int main(int argc, const char* argv[]) {
     (*head).width = 1;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
-    (*head).mass = 0;
+    (*head).mass = 0.0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
     
