@@ -222,7 +222,7 @@ int main(int argc, const char* argv[]) {
               DrawCircle(x, y, L, W, circleRadius, 0.1);          
            }
            Refresh();
-           usleep(80000000);
+           usleep(800000);
            
 
            
