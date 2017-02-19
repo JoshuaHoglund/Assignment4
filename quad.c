@@ -10,10 +10,11 @@ double dist(double x1, double x2, double y1, double y2) {
 	return d;
 }
 
-force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetamax, double G, double eps) {
+force_t* getForce(p_qtree ** node, particle_t p, double thetamax, double G, double eps) {
 	double theta = (**node).width/dist(p.x_pos, (**node).centerX, p.y_pos, (**node).centerY);
 	//If (**node).nw==NULL all other children are also NULL
 	if ((**node).nw==NULL && p.x_pos!=(**node).massCenterX) {
+		force_t* force = calloc(1,sizeof(force_t));
 		double r_x = p.x_pos - (**node).massCenterX;
 		double r_y = p.y_pos - (**node).massCenterY;
 		
@@ -29,22 +30,18 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		return force;
 	}
 	else if (theta>thetamax && p.x_pos!=(**node).massCenterX) {
-		force_t * tempforce = malloc(sizeof(force_t));
-		force_t nwforce = *getForce((&(**node).nw),p, tempforce, thetamax, G, eps);
-		free(tempforce);
-		tempforce = malloc(sizeof(force_t));
-		force_t neforce = *getForce((&(**node).ne),p, tempforce, thetamax, G, eps);
-		free(tempforce);
-		tempforce = malloc(sizeof(force_t));
-		force_t swforce = *getForce((&(**node).sw),p, tempforce, thetamax, G, eps);
-		free(tempforce);
-		tempforce = malloc(sizeof(force_t));
-		force_t seforce = *getForce((&(**node).se),p, tempforce, thetamax, G, eps);
-		free(tempforce);
+		force_t * force = calloc(1,sizeof(force_t));
+		force_t * nwforce = getForce((&(**node).nw),p, thetamax, G, eps);
+		force_t * neforce = getForce((&(**node).ne),p, thetamax, G, eps);
+		force_t * swforce = getForce((&(**node).sw),p, thetamax, G, eps);
+		force_t * seforce = getForce((&(**node).se),p, thetamax, G, eps);
 		
-		(*force).y += nwforce.x + neforce.x + swforce.x + seforce.x;
-		(*force).y += nwforce.y + neforce.y + swforce.y + seforce.y;
-		
+		(*force).y = (*nwforce).x + (*neforce).x + (*swforce).x + (*seforce).x;
+		(*force).y = (*nwforce).y + (*neforce).y + (*swforce).y + (*seforce).y;
+		free(nwforce);
+		free(neforce);
+		free(swforce);
+		free(seforce);
 		
 		printf("outside 2 force_x: %lf \n",(*force).x);
 		return force;
