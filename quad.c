@@ -20,8 +20,8 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		(*force).x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		(*force).y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
-		printf("r_x: %lf \n",r_x);
-		printf("r_y: %lf \n",r_y);
+		printf("force_x: %lf \n",force_x);
+		printf("force_y: %lf \n",force_y);
 		if (sqrt((*force).x*(*force).x)<0.001) {
 			(*force).x = 0;
 			(*force).y = 0;
@@ -183,10 +183,10 @@ void insert(p_qtree ** node, particle_t p) {
 	// external node, if (**node).nw==NULL all other children are also NULL
 	if ((**node).nw==NULL) {
 		if(mass!=0) {
-		(**node).nw = (p_qtree *) calloc(1,sizeof(p_qtree));
-		(**node).ne = (p_qtree *) calloc(1,sizeof(p_qtree));
-		(**node).sw = (p_qtree *) calloc(1,sizeof(p_qtree));
-		(**node).se = (p_qtree *) calloc(1,sizeof(p_qtree));
+		(**node).nw = (p_qtree *) calloc(sizeof(p_qtree));
+		(**node).ne = (p_qtree *) calloc(sizeof(p_qtree));
+		(**node).sw = (p_qtree *) calloc(sizeof(p_qtree));
+		(**node).se = (p_qtree *) calloc(sizeof(p_qtree));
 		nullifyChildren(&(**node).nw);
 		nullifyChildren(&(**node).ne);
 		nullifyChildren(&(**node).sw);
