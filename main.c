@@ -125,7 +125,7 @@ int main(int argc, const char* argv[]) {
  // assignment 4
    
 
- double epsilon=0.001;
+ const double epsilon=0.001;
  const double G=100.0/N;
   if(graphics ==0){ 
  for(int t=0;t<nsteps;t++) {
