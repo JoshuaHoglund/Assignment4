@@ -36,7 +36,7 @@ force_t* getForce(p_qtree ** node, particle_t p, double thetamax, double G, doub
 		force_t * swforce = getForce((&(**node).sw),p, thetamax, G, eps);
 		force_t * seforce = getForce((&(**node).se),p, thetamax, G, eps);
 		
-		(*force).y = (*nwforce).x + (*neforce).x + (*swforce).x + (*seforce).x;
+		(*force).x = (*nwforce).x + (*neforce).x + (*swforce).x + (*seforce).x;
 		(*force).y = (*nwforce).y + (*neforce).y + (*swforce).y + (*seforce).y;
 		free(nwforce);
 		free(neforce);
