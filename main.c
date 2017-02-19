@@ -229,7 +229,9 @@ int main(int argc, const char* argv[]) {
    for(int i=0;i<N;i++){
       force_t * force = (force_t*)calloc(1,sizeof(force_t));
       force = getForce(&head, particles[i], force,theta_max,G,epsilon);    
-       printf("getForce worked\n");  
+       printf("getForce worked\n"); 
+      printf("outside force_x: %lf \n",force.x);
+      printf("outside force_y: %lf \n",force.y);
       double m_i = 1/particles[i].mass;
       particles[i].vel_x += delta_t*(*force).x*m_i;
       particles[i].vel_y += delta_t*(*force).y*m_i;
