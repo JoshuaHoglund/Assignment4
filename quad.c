@@ -20,8 +20,8 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		(*force).x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		(*force).y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
-		printf("force_x: %lf \n",force_x);
-		printf("force_y: %lf \n",force_y);
+		printf("force_x: %lf \n",(*force).x);
+		printf("force_y: %lf \n",(*force).y);
 		if (sqrt((*force).x*(*force).x)<0.001) {
 			(*force).x = 0;
 			(*force).y = 0;
