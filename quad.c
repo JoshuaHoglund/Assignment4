@@ -20,8 +20,8 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 		double abs_r = sqrt(r_x*r_x + r_y*r_y);
 		(*force).x = -G*p.mass*(**node).mass*r_x/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		(*force).y = -G*p.mass*(**node).mass*r_y/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
-		printf("force_x: %lf \n",(*force).x);
-		printf("force_y: %lf \n",(*force).y);
+		printf("r_x: %lf \n",r_x);
+		printf("r_y: %lf \n",r_y);
 		return force;
 	}
 	if (theta>thetamax && p.x_pos!=(**node).massCenterX) {
