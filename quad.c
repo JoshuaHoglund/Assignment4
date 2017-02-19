@@ -183,10 +183,10 @@ void insert(p_qtree ** node, particle_t p) {
 	// external node, if (**node).nw==NULL all other children are also NULL
 	if ((**node).nw==NULL) {
 		if(mass!=0) {
-		(**node).nw = (p_qtree *) calloc(sizeof(p_qtree));
-		(**node).ne = (p_qtree *) calloc(sizeof(p_qtree));
-		(**node).sw = (p_qtree *) calloc(sizeof(p_qtree));
-		(**node).se = (p_qtree *) calloc(sizeof(p_qtree));
+		(**node).nw = (p_qtree *) calloc(1,sizeof(p_qtree));
+		(**node).ne = (p_qtree *) calloc(1,sizeof(p_qtree));
+		(**node).sw = (p_qtree *) calloc(1,sizeof(p_qtree));
+		(**node).se = (p_qtree *) calloc(1,sizeof(p_qtree));
 		nullifyChildren(&(**node).nw);
 		nullifyChildren(&(**node).ne);
 		nullifyChildren(&(**node).sw);
