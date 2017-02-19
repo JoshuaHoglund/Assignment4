@@ -194,7 +194,7 @@ int main(int argc, const char* argv[]) {
     (*head).massCenterY = 0.5;
     
    printf("Init worked\n");
-    //insert(&head, particles[0]);
+    insert(&head, particles[0]);
    printf("Insert worked\n");
           // printf("x0: %lf\n",particles[0].x_pos);
           // printf("y0: %lf\n",particles[0].y_pos);
@@ -202,7 +202,7 @@ int main(int argc, const char* argv[]) {
            //printf("y1: %lf\n",particles[1].y_pos);
            
            
-            for(int k=0;k<N;k++)
+            for(int k=1;k<N;k++)
    {
        insert(&head, particles[k]);
    }
