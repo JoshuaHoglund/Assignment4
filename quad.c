@@ -37,7 +37,7 @@ force_t* getForce(p_qtree ** node, particle_t p, force_t * force, double thetama
 			(*getForce((&(**node).ne),p, force, thetamax, G, eps)).y + 
 			(*getForce((&(**node).sw),p, force, thetamax, G, eps)).y + 
 			(*getForce((&(**node).se),p, force, thetamax, G, eps)).y;
-		printf("outside 2 force_x: %lf",(*force).x);
+		printf("outside 2 force_x: %lf \n",(*force).x);
 		return force;
 	}
 	else if(p.x_pos!=(**node).massCenterX) {
