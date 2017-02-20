@@ -102,7 +102,7 @@ int main(int argc, const char* argv[]) {
     gettimeofday(&t3,0);
    elapsed_time_mass += (t3.tv_sec-t2.tv_sec)*1e6 + t3.tv_sec-t2.tv_sec;
 	      
-     gettimeofday(&t0,0);
+    // gettimeofday(&t0,0);
 	for(int i=0;i<N;i++){
 	      force_t * force = (force_t*)calloc(1,sizeof(force_t));
 	      force = getForce(&head, particles[i],theta_max,G,epsilon);
@@ -113,13 +113,13 @@ int main(int argc, const char* argv[]) {
 	      particles[i].y_pos += delta_t*particles[i].vel_y;  
 	      free(force);
 	   }
-   gettimeofday(&t1,0);        
+  // gettimeofday(&t1,0);        
    
    delete(&head);
-	elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
+//	elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
 
       }
-	   printf("%ld force microsec\n", elapsed_time_usec);
+	//   printf("%ld force microsec\n", elapsed_time_usec);
 	   printf("%ld mass microsec: ", elapsed_time_mass);
 	   printf("%ld insert microsec: ", elapsed_time_insert);
    }
