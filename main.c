@@ -74,7 +74,7 @@ int main(int argc, const char* argv[]) {
 
  const double epsilon=0.001;
  const double G=100.0/N;
- 
+ long elapsed_time_used=0;
    
    if(graphics==0) {
       for(int t=0;t<nsteps;t++) {
@@ -108,11 +108,12 @@ int main(int argc, const char* argv[]) {
    gettimeofday(&t1,0);        
    
    delete(&head);
-        long elapsed_time_usec = (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
-	printf("%ld ,microsec", elapsed_time_usec);
+	elapsed_time_used += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
 
       }
    }
+	printf("%ld ,microsec", elapsed_time_usec);
+	
    else if(graphics ==1) {
       int L = 1;
       int W = 1;
@@ -132,25 +133,17 @@ int main(int argc, const char* argv[]) {
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
     
-  // printf("Init worked\n");
     insert(&head, particles[0]);
-  // printf("Insert worked\n");
-          // printf("x0: %lf\n",particles[0].x_pos);
-          // printf("y0: %lf\n",particles[0].y_pos);
-          // printf("x1: %lf\n",particles[1].x_pos);
-           //printf("y1: %lf\n",particles[1].y_pos);
+  
            
            
             for(int k=1;k<N;k++)
    {
        insert(&head, particles[k]);
    }
-  //printf("Insert worked\n");         
+        
   massification(&head);
-  //printf("Massification worked\n");  
-  //printf("New time step\n");
-  //printTree(&head);
-  //printf("printTree worked\n");  
+  
            
            
            ClearScreen();           
