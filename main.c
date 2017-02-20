@@ -69,12 +69,12 @@ int main(int argc, const char* argv[]) {
     i=j*5;
  }
    
- // assignment 4
-   struct timeval t0, t1;// t2,t3,t4,t5;
+ // assignment 4//////////////////////////////////////////////////////////////////////////////////////////////////////
+   struct timespec t0, t1;// t2,t3,t4,t5;
 
  const double epsilon=0.001;
  const double G=100.0/N;
- long elapsed_time_usec=0;
+ long elapsed_time_nsec=0;
 // long elapsed_time_mass=0;
  //long elapsed_time_insert=0;
 	
@@ -98,11 +98,13 @@ int main(int argc, const char* argv[]) {
 	//elapsed_time_insert += (t5.tv_sec-t4.tv_sec)*1e6 + t5.tv_sec-t4.tv_sec;
 	      
        // gettimeofday(&t2,0);   
-	    gettimeofday(&t0,0);     
+	    clock_gettime(CLOCK_REALTIME,&t0);     
+	      force = getForce(&head, particles[i],theta_max,G,epsilon);
      massification(&head);
+	clock_gettime(CLOCK_REALTIME,&t1); 
     //gettimeofday(&t3,0);
    //elapsed_time_mass += (t3.tv_sec-t2.tv_sec)*1e6 + t3.tv_sec-t2.tv_sec;
-	 gettimeofday(&t1,0);        
+	// gettimeofday(&t1,0);        
  
 	for(int i=0;i<N;i++){
 	      force_t * force = (force_t*)calloc(1,sizeof(force_t));
@@ -117,10 +119,10 @@ int main(int argc, const char* argv[]) {
         
    
    delete(&head);
- elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
+ elapsed_time_nsec += (t1.tv_sec-t0.tv_sec)*1e9 + t1.tv_nsec-t0.tv_nsec;
 
       }
-	  printf("%ld force microsec\n", elapsed_time_usec);
+	  printf("%ld force microsec\n", elapsed_time_nsec);
 	  // printf("%ld mass microsec: ", elapsed_time_mass);
 	  // printf("%ld insert microsec: ", elapsed_time_insert);
    }
