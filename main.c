@@ -5,60 +5,6 @@
 #include "graphics.h"
 #include "quad.h"
 
-void updateParticles(double delta_t, particle_t *particles, int N) {
-   //Set constants
-   double *forcex=(double*)malloc(N*sizeof(double));
-   double *forcey=(double*)malloc(N*sizeof(double));
-   const double G = 100.0/N;
-   const double eps = 0.001;
-   double abs_r;
-   double r_x, r_y;
-   double x;
-   double y;
-   double m_j;
-   double m_i;
-   double k;
-   
-   for(int i=0; i<N; i++){
-      x = particles[i].x_pos;
-      y = particles[i].y_pos;
-      m_i = particles[i].mass;
-      
-      // For each particle i, calculate the sum of the forces acting on it
-      // two for loops!!!
-      for(int j=i+1; j<N; j++){
-         
-            m_j = particles[j].mass;
-            
-            // Calculate the distance betweem particles i and j.
-            // USE SQRTF????
-            abs_r = sqrt((x-particles[j].x_pos)*(x-particles[j].x_pos)+(y-particles[j].y_pos)*(y-particles[j].y_pos));
-            r_x = x-particles[j].x_pos;
-            r_y = y-particles[j].y_pos;
-            // Plumber spheres
-            // use dummy variable???
-            k = -G*m_i*m_j/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
-            forcex[i] += k*r_x;
-            forcey[i] += k*r_y;
-            forcex[j] += -k*r_x;
-            forcey[j] += -k*r_y;
-         
-      }   
-        
-   }
-   // Using the force, update the velocity and position.
-   for(int i=0;i<N;i++){
-      m_i = 1/particles[i].mass;
-      particles[i].vel_x += delta_t*forcex[i]*m_i;
-      particles[i].vel_y += delta_t*forcey[i]*m_i;
-      particles[i].x_pos += delta_t*particles[i].vel_x;
-      particles[i].y_pos += delta_t*particles[i].vel_y;
-   }
-   free(forcex);
-   free(forcey);
-}
-
- 
 int main(int argc, const char* argv[]) { 
  // read in N filename nsteps delta_t graphics
  // N number of stars/particles to simulate 
@@ -127,51 +73,42 @@ int main(int argc, const char* argv[]) {
 
  const double epsilon=0.001;
  const double G=100.0/N;
-  if(graphics ==0){ 
- for(int t=0;t<nsteps;t++) {
-    p_qtree * head=(p_qtree *) malloc(sizeof(p_qtree));
-   //(*head).nw = NULL;
-   //(*head).ne = NULL;
-   //(*head).sw = NULL; 
-   //(*head).se = NULL; 
-    (*head).width = 1.0;
+ 
+   
+   if(graphics==0) {
+      for(int t=0;t<nsteps;t++) {
+        p_qtree * head=(p_qtree *) calloc(1,sizeof(p_qtree));
+    (*head).width = 1;
     (*head).centerX = 0.5;
     (*head).centerY = 0.5;
-    (*head).mass = 0;
+    (*head).mass = 0.0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-    
-    force_t * force = (force_t*)calloc(1,sizeof(force_t));
-   
-   // insert(&head, particles[0]);
-   for(int k=0;k<N;k++)
-   {
+    insert(&head, particles[0]);
+        
+     for(int k=1;k<N;k++)
+     {
        insert(&head, particles[k]);
-   }
+     }
+        
+     massification(&head);
    
-  massification(&head);
-         
-   for(int i=0;i<N;i++){
-     force = getForce(&head, particles[i],theta_max,G,epsilon);
-      
-      double m_i = 1/particles[i].mass;
-      particles[i].vel_x += delta_t*(*force).x*m_i;
-      particles[i].vel_y += delta_t*(*force).y*m_i;
-      particles[i].x_pos += delta_t*particles[i].vel_x;
-      particles[i].y_pos += delta_t*particles[i].vel_y;  
-   }
+
+	for(int i=0;i<N;i++){
+	      force_t * force = (force_t*)calloc(1,sizeof(force_t));
+	      force = getForce(&head, particles[i],theta_max,G,epsilon);
+	      double m_i = 1/particles[i].mass;
+	      particles[i].vel_x += delta_t*(*force).x*m_i;
+	      particles[i].vel_y += delta_t*(*force).y*m_i;
+	      particles[i].x_pos += delta_t*particles[i].vel_x;
+	      particles[i].y_pos += delta_t*particles[i].vel_y;  
+	      free(force);
+	   }
+           
    
    delete(&head);
-   free(force);
-   }
-  }
-   
-   
- 
-   if(graphics==5) {
-      for(int t=0;t<nsteps;t++) {
-         // dont use function?
-         //updateParticles(delta_t, particles, N);
+
+
       }
    }
    else if(graphics ==1) {
@@ -222,7 +159,7 @@ int main(int argc, const char* argv[]) {
               DrawCircle(x, y, L, W, circleRadius, 0.1);          
            }
            Refresh();
-           usleep(800);
+           //usleep(800);
            
 
            
