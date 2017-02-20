@@ -69,7 +69,7 @@ int main(int argc, const char* argv[]) {
  }
    
  // assignment 4
-   
+   struct timeval t0, t1;
 
  const double epsilon=0.001;
  const double G=100.0/N;
@@ -93,7 +93,7 @@ int main(int argc, const char* argv[]) {
         
      massification(&head);
    
-
+     gettimeofday(&t0,0);
 	for(int i=0;i<N;i++){
 	      force_t * force = (force_t*)calloc(1,sizeof(force_t));
 	      force = getForce(&head, particles[i],theta_max,G,epsilon);
@@ -104,10 +104,11 @@ int main(int argc, const char* argv[]) {
 	      particles[i].y_pos += delta_t*particles[i].vel_y;  
 	      free(force);
 	   }
-           
+   gettimeofday(&t1,0);        
    
    delete(&head);
-
+        long elapsed_time_usec = (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
+	printf("%ld ,microsec", elapsed_time_usec);
 
       }
    }
