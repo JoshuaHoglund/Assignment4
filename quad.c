@@ -22,10 +22,10 @@ force_t* getForce(p_qtree ** node, particle_t p, double thetamax, double G, doub
 		r3=1/((abs_r+eps)*(abs_r+eps)*(abs_r+eps));
 		(*force).x = -G*p.mass*(**node).mass*r_x*r3;
 		(*force).y = -G*p.mass*(**node).mass*r_y*r3;
-		if (sqrt((*force).x*(*force).x)<0.001) {
+		/*if (sqrt((*force).x*(*force).x)<0.001) {
 			(*force).x = 0;
 			(*force).y = 0;
-		}
+		}*/
 		return force;
 	}
 	else if (theta>thetamax && p.x_pos!=(**node).massCenterX) {
