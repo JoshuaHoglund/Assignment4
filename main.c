@@ -74,7 +74,7 @@ int main(int argc, const char* argv[]) {
 
  const double epsilon=0.001;
  const double G=100.0/N;
- long elapsed_time_usec=0;
+ //long elapsed_time_usec=0;
  long elapsed_time_mass=0;
  long elapsed_time_insert=0;
 	
