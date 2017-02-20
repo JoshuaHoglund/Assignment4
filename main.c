@@ -111,8 +111,9 @@ int main(int argc, const char* argv[]) {
 	elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
 
       }
+	   printf("%ld ,microsec", elapsed_time_usec);
    }
-	printf("%ld ,microsec", elapsed_time_usec);
+	
 	
    else if(graphics ==1) {
       int L = 1;
