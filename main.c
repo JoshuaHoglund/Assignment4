@@ -120,7 +120,7 @@ int main(int argc, const char* argv[]) {
         
    
    delete(&head);
- elapsed_time_nsec += (t1.tv_sec-t0.tv_sec)*1e9 + t1.tv_nsec-t0.tv_nsec;
+ //elapsed_time_nsec += (t1.tv_sec-t0.tv_sec)*1e9 + t1.tv_nsec-t0.tv_nsec;
 
       }
 	  //printf("%ld force microsec\n", elapsed_time_nsec);
