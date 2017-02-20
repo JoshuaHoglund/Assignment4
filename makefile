@@ -1,5 +1,5 @@
 CC = gcc -std=c99 
-LD = gcc -std=c99 -lrt
+LD = gcc -std=c99 
 CFLAGS = -O3 -Wall -Werror
 LDFLAGS =-L/opt/X11/lib -lX11 -lm 
 INCLUDES=-I/opt/X11/include
