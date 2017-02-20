@@ -4,6 +4,7 @@
 #include "file_operations.h"
 #include "graphics.h"
 #include "quad.h"
+#include <sys/time.h>
 
 int main(int argc, const char* argv[]) { 
  // read in N filename nsteps delta_t graphics
