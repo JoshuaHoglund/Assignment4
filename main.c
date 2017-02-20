@@ -74,7 +74,7 @@ int main(int argc, const char* argv[]) {
 
  const double epsilon=0.001;
  const double G=100.0/N;
- long elapsed_time_used=0;
+ long elapsed_time_usec=0;
    
    if(graphics==0) {
       for(int t=0;t<nsteps;t++) {
@@ -108,7 +108,7 @@ int main(int argc, const char* argv[]) {
    gettimeofday(&t1,0);        
    
    delete(&head);
-	elapsed_time_used += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
+	elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
 
       }
    }
