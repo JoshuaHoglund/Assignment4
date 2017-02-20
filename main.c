@@ -70,11 +70,13 @@ int main(int argc, const char* argv[]) {
  }
    
  // assignment 4
-   struct timeval t0, t1;
+   struct timeval t0,t1,t2,t3;
 
  const double epsilon=0.001;
  const double G=100.0/N;
  long elapsed_time_usec=0;
+long elapsed_time_mass=0;
+	
    
    if(graphics==0) {
       for(int t=0;t<nsteps;t++) {
@@ -85,15 +87,16 @@ int main(int argc, const char* argv[]) {
     (*head).mass = 0.0;
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
-    insert(&head, particles[0]);
         
-     for(int k=1;k<N;k++)
+     for(int k=0;k<N;k++)
      {
        insert(&head, particles[k]);
      }
-        
+        gettimeofday(&t2,0);   
      massification(&head);
-   
+    gettimeofday(&t3,0);
+   elapsed_time_mass += (t3.tv_sec-t2.tv_sec)*1e6 + t3.tv_sec-t2.tv_sec;
+	      
      gettimeofday(&t0,0);
 	for(int i=0;i<N;i++){
 	      force_t * force = (force_t*)calloc(1,sizeof(force_t));
@@ -111,7 +114,8 @@ int main(int argc, const char* argv[]) {
 	elapsed_time_usec += (t1.tv_sec-t0.tv_sec)*1e6 + t1.tv_sec-t0.tv_sec;
 
       }
-	   printf("%ld ,microsec", elapsed_time_usec);
+	   printf("%ld ,microsec\n", elapsed_time_usec);
+	   printf("%ld mass microsec: ", elapsed_time_mass);
    }
 	
 	
