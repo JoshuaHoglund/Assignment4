@@ -70,7 +70,7 @@ int main(int argc, const char* argv[]) {
  }
    
  // assignment 4
-   struct timeval t0,t1,t2,t3,t4,t5;
+   struct timeval t2,t3,t4,t5;
 
  const double epsilon=0.001;
  const double G=100.0/N;
