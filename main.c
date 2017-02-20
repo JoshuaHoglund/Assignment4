@@ -148,11 +148,11 @@ int main(int argc, const char* argv[]) {
     (*head).massCenterX = 0.5;
     (*head).massCenterY = 0.5;
     
-    insert(&head, particles[0]);
+ 
   
            
            
-            for(int k=1;k<N;k++)
+            for(int k=0;k<N;k++)
    {
        insert(&head, particles[k]);
    }
